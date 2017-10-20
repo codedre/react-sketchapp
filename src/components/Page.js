@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 const propTypes = {
   name: PropTypes.string,
   children: PropTypes.node,
+  style: PropTypes.object,
 };
 
 class Page extends React.Component {
@@ -13,11 +14,15 @@ class Page extends React.Component {
   };
 
   render() {
-    const { name, children } = this.props;
+    const { name, children, style } = this.props;
     const _name =
       name === 'Symbols' ? 'Symbols (renamed to avoid conflict)' : name;
 
-    return <page name={_name}>{children}</page>;
+    return (
+      <page name={_name} style={style}>
+        {children}
+      </page>
+    );
   }
 }
 
